@@ -35,9 +35,9 @@
 				
 			// Images (in the format of 'url': 'alignment').
 			images: {
-				'http://static.czy-kasakun.com/kasakun/images/entry_bg01.jpg': 'center',
-				'http://static.czy-kasakun.com/kasakun/images/entry_bg02.jpg': 'center',
-				'http://static.czy-kasakun.com/kasakun/images/entry_bg03.jpg': 'center'
+				'http://static.czy-kasakun.com/kasakun/entry/images/entry_bg01.jpg': 'center',
+				'http://static.czy-kasakun.com/kasakun/entry/images/entry_bg02.jpg': 'center',
+				'http://static.czy-kasakun.com/kasakun/entry/images/entry_bg03.jpg': 'center'
 			},
 
 			// Delay.

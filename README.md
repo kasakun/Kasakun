@@ -14,3 +14,5 @@ try to find a better way to fix it.
 All the static resource is stored at http://static.czy-kasakun.com/kasakun
 The reason is that I feel really painful to apply Django's static setting.
 Now all the resources are collected and deployed at the cloud.
+
+The static directory in each app is just for local test.
