@@ -6,7 +6,7 @@ class Article(models.Model):
     content = models.TextField(u'content')
     number = models.IntegerField(u'number', default=0)
     introduction = models.TextField(u'introduction')
-    pub_date = models.DateTimeField(u'pub date', auto_now_add=True, editable=True)
+    pubDate = models.DateTimeField(u'pubDate', auto_now_add=True, editable=True)
 
     def __str__(self):
         return self.title
@@ -17,11 +17,12 @@ class Article(models.Model):
 class Book(models.Model):
     title = models.CharField("title", max_length=256)
     category = models.CharField(u'category', max_length=80)
-    imgurl = models.CharField("imgurl", max_length=256)
+    fileFormat = models.CharField(u'fileFormat', max_length=10)
+    imgUrl = models.CharField("imgUrl", max_length=256)
     number = models.IntegerField(u'number', default=0)
     introduction = models.TextField(u'introduction')
-    pub_date = models.DateTimeField(u'upload time', auto_now_add=True, editable=True)
-    downloadurl = models.CharField("downloadurl", max_length=256)
+    uploadDate = models.DateTimeField(u'uploadDate', auto_now_add=True, editable=True)
+    downloadUrl = models.CharField("downloadUrl", max_length=256)
 
     def __str__(self):
         return self.title
