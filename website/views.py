@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from website.ctrl.article import *
 from website.ctrl.book import *
 
+import markdown2
+
 # Website entry
 def entry(request):
     return render(request, 'entry.html')
@@ -42,6 +44,32 @@ def blog(request):
                    'recentArticles': recentArticles,
                    'lastPage': lastPage,
                    'nextPage': nextPage})
+
+def article(request):
+    # try:
+    #     article_id = request.GET['articleid']
+    # except:
+    #     return articles(request)
+    # logging_status = get_logging_status(request)
+    # item = get_article(article_id)
+    # article_dict = item.to_dict()
+    # article_dict['categorys'] = article_dict['category'].split(',')
+    originContent = '## Hello\n### hello\n```javascript\nvar s = "JavaScript syntax highlighting";\nalert(s);\n```'
+    html = markdown2.markdown(originContent)
+    articleDict = {'title': 'Test', 'introduction': 'testtest', 'content': html}
+    return render(request, 'article.html',
+                  {'article': articleDict})
+
+def editor(request):
+    # try:
+    #     article_id = request.GET['articleid']
+    # except:
+    #     return articles(request)
+    # logging_status = get_logging_status(request)
+    # item = get_article(article_id)
+    # article_dict = item.to_dict()
+    # article_dict['categorys'] = article_dict['category'].split(',')
+    return render(request, 'editor.html')
 
 # Book
 def book(request):

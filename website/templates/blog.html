@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Blog - kasakun</title>
+		<title>Blog-kasakun</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/main.css" />
@@ -24,11 +24,9 @@
 							<a href="#menu" class="menuToggle"><span>Category</span></a>
 							<div id="menu">
 								<ul>
-									<li><a href="index.html">Home</a></li>
-									<li><a href="generic.html">Generic</a></li>
-									<li><a href="elements.html">Elements</a></li>
-									<li><a href="#">Sign Up</a></li>
-									<li><a href="#">Log In</a></li>
+									<li><a href="#">Article</a></li>
+									<li><a href="#">Comment</a></li>
+									<li><a href="#">Review</a></li>
 								</ul>
 							</div>
 						</li>
@@ -41,12 +39,15 @@
 				<header>
 					<h2>Blog</h2>
 					<p>Welcome to Blog Page</p>
+					<ul class="actions special">
+						<li><a href="/home/blog/editor" class="button primary">Editor</a></li>
+					</ul>
 				</header>
 				<section class="wrapper style5">
 					<div class="inner">
 						{% for article in articles %}
-							<h3>article.title</h3>
-							<p>article.introduction</p>
+							<h3>{{ article.title }}</h3>
+							<p>{{ article.introduction }}</p>
 							<hr />
 						{% endfor %}
 

@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Book-kasakun</title>
+		<title>{{ article.title }}-kasakun</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/main.css" />
@@ -18,41 +18,16 @@
 			<!-- Header -->
 			<header id="header">
 				<h1><a href="/home">Zeyu Chen</a></h1>
-				<nav id="nav">
-					<ul>
-						<li class="special">
-							<a href="#menu" class="menuToggle"><span>Category</span></a>
-							<div id="menu">
-								<ul>
-									<li><a href="index.html">Home</a></li>
-									<li><a href="generic.html">Generic</a></li>
-									<li><a href="elements.html">Elements</a></li>
-									<li><a href="#">Sign Up</a></li>
-									<li><a href="#">Log In</a></li>
-								</ul>
-							</div>
-						</li>
-					</ul>
-				</nav>
 			</header>
-
 			<!-- Main -->
 			<article id="main">
 				<header>
-					<h2>Book</h2>
-					<p>Welcome to Book Page</p>
-					<ul class="actions special">
-						<li><a href="#" class="button primary">Upload</a></li>
-					</ul>
+					<h2>{{ article.title }}</h2>
+					<p>{{ article.introduction }}</p>
 				</header>
 				<section class="wrapper style5">
 					<div class="inner">
-						{% for book in books %}
-							<h3>{{ book.title }}</h3>
-							<p>{{ book.introduction }}</p>
-							<hr />
-						{% endfor %}
-
+                        {{ article.content | safe }}
 					</div>
 				</section>
 			</article>

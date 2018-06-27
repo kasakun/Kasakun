@@ -6,10 +6,11 @@
 -->
 <html>
 	<head>
-		<title>Book-kasakun</title>
+		<title>Editor-kasakun</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/main.css" />
+        <link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/main.css" />
+        <link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/editormd/css/editormd.min.css" />
 		<noscript><link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -18,44 +19,21 @@
 			<!-- Header -->
 			<header id="header">
 				<h1><a href="/home">Zeyu Chen</a></h1>
-				<nav id="nav">
-					<ul>
-						<li class="special">
-							<a href="#menu" class="menuToggle"><span>Category</span></a>
-							<div id="menu">
-								<ul>
-									<li><a href="index.html">Home</a></li>
-									<li><a href="generic.html">Generic</a></li>
-									<li><a href="elements.html">Elements</a></li>
-									<li><a href="#">Sign Up</a></li>
-									<li><a href="#">Log In</a></li>
-								</ul>
-							</div>
-						</li>
-					</ul>
-				</nav>
 			</header>
-
 			<!-- Main -->
 			<article id="main">
 				<header>
-					<h2>Book</h2>
-					<p>Welcome to Book Page</p>
-					<ul class="actions special">
-						<li><a href="#" class="button primary">Upload</a></li>
-					</ul>
-				</header>
-				<section class="wrapper style5">
-					<div class="inner">
-						{% for book in books %}
-							<h3>{{ book.title }}</h3>
-							<p>{{ book.introduction }}</p>
-							<hr />
-						{% endfor %}
-
-					</div>
-				</section>
-			</article>
+					<h2>Editor</h2>
+                </header>	
+                <section class="wrapper style5">
+                    <div id="editor">
+                            <textarea style="display:none;">### Hello Editor.md !</textarea>
+                    </div>
+                </section>
+					
+				
+            </article>
+            
 
 			<!-- Footer -->
 			<footer id="footer">
@@ -79,7 +57,22 @@
 		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/browser.min.js"></script>
 		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/breakpoints.min.js"></script>
 		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/util.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/main.js"></script>
-
+        <script src="http://static.czy-kasakun.com/kasakun/index/assets/js/main.js"></script>
+		<script src="http://static.czy-kasakun.com/kasakun/editormd/editormd.min.js"></script>
+		<script src="http://static.czy-kasakun.com/kasakun/editormd/languages/en.js"></script>
+        <script type="text/javascript">
+            var editor;
+            $(function() {
+                editor = editormd("editor", {
+                    width   : "90%",
+                    height  : 640,
+                    syncScrolling : "single",
+                    path    : "http://static.czy-kasakun.com/kasakun/editormd/lib/",
+                    theme : "dark",
+                    previewTheme : "default",
+                    editorTheme : "3024-day"
+                });
+            });
+        </script>
 	</body>
 </html>
