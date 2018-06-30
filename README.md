@@ -16,3 +16,7 @@ The reason is that I feel really painful to apply Django's static setting.
 Now all the resources are collected and deployed at the cloud.
 
 The static directory in each app is just for local test.
+
+## Bugs
+
+00000001 Markdown cannot use h1 header

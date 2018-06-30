@@ -23,7 +23,7 @@ def blog(request):
         page = 1
     
     num = 4
-    
+
     if page <= 1:
         lastPage = 1
     else:
@@ -37,14 +37,37 @@ def blog(request):
         nextPage = page
     else:
         nextPage = page + 1
-    
+
+    # Calculate Pagination
+    pages = int(getArticleNum()/4) + 1
+
+    if page > pages:
+        page = 1
+
+    if page < 5:
+        pagination = {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}
+    elif page > (pages - 5):
+        pagination = {'1': pages - 4, 
+                      '2': pages - 3, 
+                      '3': pages - 2, 
+                      '4': pages - 1, 
+                      '5': pages}
+    else:
+        pagination = {'1': pages - 2, 
+                      '2': pages - 1, 
+                      '3': page, 
+                      '4': pages + 1, 
+                      '5': pages + 2}
 
     return render(request, 'blog.html', 
                   {'articles': articles,
                    'categories': categories,
                    'recentArticles': recentArticles,
+                   'page': page,
                    'lastPage': lastPage,
-                   'nextPage': nextPage})
+                   'nextPage': nextPage,
+                   'pages': pages,
+                   'pagination': pagination})
 
 def article(request):
     try:

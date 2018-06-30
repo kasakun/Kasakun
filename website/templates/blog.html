@@ -38,10 +38,7 @@
 			<article id="main">
 				<header>
 					<h2>Blog</h2>
-					<p>Welcome to Blog Page</p>
-					<ul class="actions special">
-						<li><a href="/home/blog/editor" class="button primary">Editor</a></li>
-					</ul>
+					<a href="/home/blog/editor" class="button primary">Click to Create</a></li>
 				</header>
 				<section class="wrapper style5">
 					<div class="inner">
@@ -52,7 +49,34 @@
 							<p>{{ article.introduction }}</p>
 							<hr />
 						{% endfor %}
-
+						<div class="row">
+							<div class="col-5 col-12-small">
+								<div class="table-wrapper">
+									<table>
+										<tbody>
+											<tr>
+												{% if page == 1 %}
+												<td><<</td>
+												{% else %}
+												<td><a href="/home/blog?page={{ lastPage }}"><<</a></td>
+												{% endif %}
+												<td><a href="/home/blog?page={{ pagination.1 }}">{{ pagination.1 }}</a></td>
+												<td><a href="/home/blog?page={{ pagination.2 }}">{{ pagination.2 }}</a></td>
+												<td><a href="/home/blog?page={{ pagination.3 }}">{{ pagination.3 }}</a></td>
+												<td><a href="/home/blog?page={{ pagination.4 }}">{{ pagination.4 }}</a></td>
+												<td><a href="/home/blog?page={{ pagination.5 }}">{{ pagination.5 }}</a></td>
+												{% if page == pages %}
+												<td>>></td>
+												{% else %}
+												<td><a href="/home/blog?page={{ nextPage }}">>></a></td>
+												{% endif %}
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						
 					</div>
 				</section>
 			</article>
