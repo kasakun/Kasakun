@@ -46,7 +46,9 @@
 				<section class="wrapper style5">
 					<div class="inner">
 						{% for article in articles %}
-							<h3>{{ article.title }}</h3>
+							<a href="/home/blog/article?id={{ article.id }}" style="text-decoration:none;">
+								<h3>{{ article.title }}</h3>
+							</a>
 							<p>{{ article.introduction }}</p>
 							<hr />
 						{% endfor %}

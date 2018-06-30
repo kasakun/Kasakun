@@ -14,6 +14,9 @@ def getArticle(articleId):
     article = Article.objects.filter(id=articleId)[0]
     return article
 
+def getArticleNum():
+    return Article.objects.count()
+    
 def getRecentArticles(num):
     recentArticles = getArticles(1, num)
     for article in recentArticles:

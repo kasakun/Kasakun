@@ -18,15 +18,16 @@ def home(request):
 def blog(request):
     try:
         page = int(request.GET['page'])
-        num = int(request.GET['num'])
+        # num = int(request.GET['num'])
     except:
         page = 1
-        num = 4
-
+    
+    num = 4
+    
     if page <= 1:
         lastPage = 1
     else:
-        lastPage = page + 1
+        lastPage = page - 1
     
     articles = getArticles(page, num)
     categories = getArticleCategories()
@@ -50,12 +51,14 @@ def article(request):
         id = request.GET['id']
     except:
         return blog(request)
-    # logging_status = get_logging_status(request)
+
+    backPage = int((getArticleNum() - int(id))/4) + 1
     item = getArticle(id)
     articleDict = item.to_dict()
     articleDict['content'] = markdown2.markdown(articleDict['content'])
     return render(request, 'article.html',
-                  {'article': articleDict})
+                  {'article': articleDict,
+                   'backPage': backPage})
 
 def editor(request):
     # try:
@@ -93,7 +96,7 @@ def book(request):
     if page <= 1:
         lastPage = 1
     else:
-        lastPage = page + 1
+        lastPage = page - 1
     
     books = getArticles(page, num)
     recentBooks = getRecentBooks(4)
