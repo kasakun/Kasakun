@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 from website.ctrl.article import *
 from website.ctrl.book import *
@@ -46,17 +46,14 @@ def blog(request):
                    'nextPage': nextPage})
 
 def article(request):
-    # try:
-    #     article_id = request.GET['articleid']
-    # except:
-    #     return articles(request)
+    try:
+        id = request.GET['id']
+    except:
+        return blog(request)
     # logging_status = get_logging_status(request)
-    # item = get_article(article_id)
-    # article_dict = item.to_dict()
-    # article_dict['categorys'] = article_dict['category'].split(',')
-    originContent = '## Hello\n### hello\n```javascript\nvar s = "JavaScript syntax highlighting";\nalert(s);\n```'
-    html = markdown2.markdown(originContent)
-    articleDict = {'title': 'Test', 'introduction': 'testtest', 'content': html}
+    item = getArticle(id)
+    articleDict = item.to_dict()
+    articleDict['content'] = markdown2.markdown(articleDict['content'])
     return render(request, 'article.html',
                   {'article': articleDict})
 
@@ -70,6 +67,19 @@ def editor(request):
     # article_dict = item.to_dict()
     # article_dict['categorys'] = article_dict['category'].split(',')
     return render(request, 'editor.html')
+
+def publish(request):
+    if request.method == 'POST':
+        article = Article()
+        article.title = request.POST['formTitle']
+        article.category = request.POST['formCategory']
+        article.introduction = request.POST['formIntroduction']
+        article.content = request.POST['formContent']
+        article.save()
+        print(request.POST['formTitle'])
+        return HttpResponseRedirect("/home/blog")
+    else:
+        return render(request,'editor.html')
 
 # Book
 def book(request):

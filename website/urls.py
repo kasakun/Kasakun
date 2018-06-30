@@ -9,5 +9,6 @@ urlpatterns = [
     path('home/blog', views.blog),
     path('home/book', views.book),
     path('home/blog/article', views.article),
-    path('home/blog/editor', views.editor)
+    path('home/blog/editor', views.editor),
+    path('publish/', views.publish)
 ]

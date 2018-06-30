@@ -24,14 +24,29 @@
 			<article id="main">
 				<header>
 					<h2>Editor</h2>
-                </header>	
+				</header>	
                 <section class="wrapper style5">
+					<form>
+							<div class="row gtr-uniform">
+								<div class="col-1"></div>
+								<div class="col-5 col-12-xsmall">
+									<input type="text" name="title" id="title" value="" placeholder="Title" />
+								</div>
+								<div class="col-5 col-12-xsmall">
+									<input type="text" name="category" id="category" value="" placeholder="Category" />
+								</div>
+								<div class="col-1"></div>
+								<div class="col-1"></div>
+								<div class="col-10 col-12-xsmall">
+									<input type="text" name="introduction" id="introduction" value="" placeholder="Introduction" />
+								</div>
+								<div class="col-1"></div>
+							</div>
+					</form>
                     <div id="editor">
-                            <textarea style="display:none;">### Hello Editor.md !</textarea>
+						<textarea style="display:none;">### Hello Editor.md !</textarea>
                     </div>
                 </section>
-					
-				
             </article>
             
 
@@ -60,8 +75,24 @@
         <script src="http://static.czy-kasakun.com/kasakun/index/assets/js/main.js"></script>
 		<script src="http://static.czy-kasakun.com/kasakun/editormd/editormd.min.js"></script>
 		<script src="http://static.czy-kasakun.com/kasakun/editormd/languages/en.js"></script>
-        <script type="text/javascript">
+		<script type="text/javascript">
             var editor;
+			function getCookie(name) {
+				var cookieValue = null;
+				if (document.cookie && document.cookie !== '') {
+					var cookies = document.cookie.split(';');
+					for (var i = 0; i < cookies.length; i++) {
+						var cookie = jQuery.trim(cookies[i]);
+						// Does this cookie string begin with the name we want?
+						if (cookie.substring(0, name.length + 1) === (name + '=')) {
+							cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+							break;
+						}
+					}
+				}
+				return cookieValue;
+			}
+
             $(function() {
                 editor = editormd("editor", {
                     width   : "90%",
@@ -70,7 +101,68 @@
                     path    : "http://static.czy-kasakun.com/kasakun/editormd/lib/",
                     theme : "dark",
                     previewTheme : "default",
-                    editorTheme : "3024-day"
+                    editorTheme : "3024-day",
+					saveHTMLToTextarea: 'true',
+					toolbarIcons : function() {
+            		return ["undo", "redo", "|", 
+							"bold", "hr", "|", 
+							"preview", "watch", "||", 
+							"fullscreen", "publish"]
+        			},
+					toolbarIconsClass : {
+						publish : "fa-paper-plane"  // 指定一个FontAawsome的图标类
+					},
+					toolbarHandlers : {
+						/**
+						* @param {Object}      cm         CodeMirror object
+						* @param {Object}      icon       icon
+						* @param {Object}      cursor     cursor
+						* @param {String}      selection  selected text
+						*/
+						publish : function(cm, icon, cursor, selection) {
+							var postForm=document.createElement("form");
+							document.body.appendChild(postForm);
+                    		postForm.method = "POST";
+
+							var formTitle=document.createElement("textarea");
+							formTitle.setAttribute("name","formTitle");
+							formTitle.setAttribute("id","formTitle")
+							formTitle.setAttribute("type","hidden");
+							formTitle.value=document.getElementById("title").value;
+							postForm.appendChild(formTitle);
+
+							var formCategory=document.createElement("textarea");
+							formCategory.setAttribute("name","formCategory");
+							formCategory.setAttribute("id","formCategory")
+							formCategory.setAttribute("type","hidden");
+							formCategory.value=document.getElementById("category").value;
+							postForm.appendChild(formCategory);
+
+							var formIntroduction=document.createElement("textarea");
+							formIntroduction.setAttribute("name","formIntroduction");
+							formIntroduction.setAttribute("id","formIntroduction")
+							formIntroduction.setAttribute("type","formIntroduction");
+							formIntroduction.value=document.getElementById("introduction").value;
+							postForm.appendChild(formIntroduction);
+
+							var formContent=document.createElement("textarea");
+							formContent.setAttribute("name","formContent");
+							formContent.setAttribute("id","formContent")
+							formContent.setAttribute("type","hidden");
+							formContent.value=editor.getMarkdown();
+							postForm.appendChild(formContent);
+							
+							var csrf = document.createElement("input");
+							csrf.setAttribute("type", "hidden");
+							csrf.setAttribute("name", "csrfmiddlewaretoken");
+							csrf.setAttribute("value", getCookie('csrftoken'));
+
+							postForm.append(csrf);
+							postForm.action = "/publish/";
+							postForm.submit();
+							document.body.removeChild(ExportForm);
+						},
+					},
                 });
             });
         </script>
