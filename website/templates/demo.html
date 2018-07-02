@@ -6,11 +6,9 @@
 -->
 <html>
 	<head>
-		<title>{{ article.title }}-kasakun</title>
+		<title>Demo-kasakun</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
-		integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 		<link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/noscript.css" /></noscript>
 	</head>
@@ -19,19 +17,41 @@
 		<div id="page-wrapper">
 			<!-- Header -->
 			<header id="header">
-				<h1><a href="/home/blog?page={{ backPage }}"><i class="fas fa-chevron-left"></i></a></h1>
+				<h1><a href="/home">Zeyu Chen</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Category</span></a>
+							<div id="menu">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li><a href="generic.html">Generic</a></li>
+									<li><a href="elements.html">Elements</a></li>
+									<li><a href="#">Sign Up</a></li>
+									<li><a href="#">Log In</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
 			</header>
+
 			<!-- Main -->
 			<article id="main">
 				<header>
-					<h2>{{ article.title }}</h2>
-					<p>{{ article.introduction }}</p>
-					<p>{{ article.pubDate }} | {{ article.number }} views</p>
+					<h2>Demo</h2>
+					<p>Welcome to Demo Page</p>
+					<a href="#" class="button primary">Upload</a>
 				</header>
 				<section class="wrapper style5">
 					<div class="inner">
-						{{ article.content | safe }}
-					</div>		
+						{% for book in books %}
+							<h3>{{ book.title }}</h3>
+							<p>{{ book.introduction }}</p>
+							<hr />
+						{% endfor %}
+
+					</div>
 				</section>
 			</article>
 
@@ -58,5 +78,6 @@
 		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/breakpoints.min.js"></script>
 		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/util.js"></script>
 		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/main.js"></script>
+
 	</body>
 </html>

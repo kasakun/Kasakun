@@ -5,6 +5,7 @@ from website.ctrl.article import *
 from website.ctrl.book import *
 
 import markdown2
+import math
 
 # Website entry
 def entry(request):
@@ -39,7 +40,7 @@ def blog(request):
         nextPage = page + 1
 
     # Calculate Pagination
-    pages = int(getArticleNum()/4) + 1
+    pages = int(math.ceil(getArticleNum()/4))
 
     if page > pages:
         page = 1
@@ -135,3 +136,15 @@ def book(request):
                    'recentBooks': recentBooks,
                    'lastPage': lastPage,
                    'nextPage': nextPage})
+
+def demo(request):
+
+    return render(request,'demo.html')
+
+def game(request):
+
+    return render(request,'game.html')
+
+def media(request):
+
+    return render(request,'media.html')
