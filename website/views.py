@@ -79,7 +79,8 @@ def article(request):
     backPage = int((getArticleNum() - int(id))/4) + 1
     item = getArticle(id)
     articleDict = item.to_dict()
-    articleDict['content'] = markdown2.markdown(articleDict['content'])
+    articleDict['content'] = markdown2.markdown(articleDict['content'],
+                                                extras=['fenced-code-blocks', 'tables', 'strike'])
     return render(request, 'article.html',
                   {'article': articleDict,
                    'backPage': backPage})

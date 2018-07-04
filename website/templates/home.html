@@ -1,127 +1,66 @@
-<!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<!doctype html>
+<html lang="en">
 	<head>
-		<title>kasakun</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Cover Template for Bootstrap</title>
+
+		<!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
 		integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-		<link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/noscript.css" /></noscript>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/solar/bootstrap.min.css" 
+    	rel="stylesheet" integrity="sha384-5R1YdaymXlWnSzNCZhBMJnL6ZRBonq3cnj8A38eihLMaAb66oNJhErrQy9jIGHkl" crossorigin="anonymous">
+		<link href="https://bootswatch.com/_assets/css/custom.min.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="http://static.czy-kasakun.com/kasakun/index/cover.css" rel="stylesheet">
 	</head>
-	<body class="landing is-preload">
 
-		<!-- Page Wrapper -->
-		<div id="page-wrapper">
-			<!-- Header -->
-			<header id="header" class="alt">
-				<h1><a href="#">Zeyu CHen</a></h1>
-				<nav id="nav">
-					<ul>
-						<li class="special">
-							<a href="#menu" class="menuToggle"><span>Menu</span></a>
-							<div id="menu">
-								<ul>
-									<li><a href="#">Home</a></li>
-									<li><a href="/home/blog">Blog</a></li>
-									<li><a href="/home/book">Book</a></li>
-									<li><a href="/home/demo">Demo</a></li>
-									<li><a href="/home/game">Game</a></li>
-									<li><a href="/home/media">Media</a></li>
-									<li><a href="/admin">Login</a></li>
-								</ul>
-							</div>
+	<body class="text-center">
+		<div class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+			<div class="container">
+				<a href="/home" class="navbar-brand">Home</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="/home/blog">Blog</a></li>
+						<li class="nav-item"><a class="nav-link" href="/home/book">Book</a></li>
+						<li class="nav-item"><a class="nav-link" href="/home/demo">Demo</a></li>
+						<li class="nav-item"><a class="nav-link" href="/home/game">Game</a></li>
+						<li class="nav-item"><a class="nav-link" href="/home/media">Media</a></li>
+					</ul>
+					<ul class="nav navbar-nav ml-auto">
+						<li class="nav-item">
+						{% if request.user.is_authenticated %} 
+						<a class="nav-link" href="/admin/logout">Logout</a>
+						{% else %}
+						<a class="nav-link" href="/admin/login">Login</a>
+						{% endif %}
 						</li>
 					</ul>
-				</nav>
-			</header>
-
-			<!-- Banner -->
-			<section id="banner">
-				<div class="inner">
-					<h2>Zeyu Chen</h2>
-					<p>Welcome to My Page</p>
 				</div>
-				<a href="#one" class="more scrolly">Learn More</a>
-			</section>
+			</div>
+		</div>
+		<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+			<main role="main" class="inner cover">
+			<h1 class="cover-heading">Cover your page.</h1>
+			<p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+			</main>
 
-			<!-- One -->
-			<section id="one" class="wrapper style1 special">
-				<div class="inner">
-					<header class="major">
-						<h2>About Me</h2>
-						<ul class="icons major">
-							<li><i class="fas fa-map-marker-alt"></i> Santa Clara</li>
-							<li><i class="fas fa-graduation-cap"></i> Georgia Tech</li>
-						</ul>
-
-					</header>
-				</div>
-			</section>
-
-			<!-- Two -->
-			<section id="two" class="wrapper alt style2">
-				<section class="spotlight">
-					<div class="image"><img src="http://static.czy-kasakun.com/kasakun/index/images/pic01.jpg" alt="" /></div><div class="content">
-						<a href="/home/blog"><h2>Blog</h2></a>
-						<a href="/home/blog"><p>Article, Comment and Review.</p></a>
-					</div>
-				</section>
-				<section class="spotlight">
-					<div class="image"><img src="http://static.czy-kasakun.com/kasakun/index/images/pic02.jpg" alt="" /></div><div class="content">
-						<a href="/home/book"><h2>Book</h2></a>
-						<a href="/home/book"><p>Tech, Fiction and Non-fiction.</p></a>
-					</div>
-				</section>
-				<section class="spotlight">
-					<div class="image"><img src="http://static.czy-kasakun.com/kasakun/index/images/pic03.jpg" alt="" /></div><div class="content">
-						<a href="/home/demo"><h2>Demo</h2></a>
-						<a href="/home/demo"><p>Demo Room.</p></a>
-					</div>
-				</section>
-				<section class="spotlight">
-					<div class="image"><img src="http://static.czy-kasakun.com/kasakun/index/images/pic03.jpg" alt="" /></div><div class="content">
-						<a href="/home/game"><h2>Game</h2></a>
-						<a href="/home/game"><p>Blizzard, Nitendo and Steam.</p></a>
-					</div>
-				</section>
-				<section class="spotlight">
-					<div class="image"><img src="http://static.czy-kasakun.com/kasakun/index/images/pic03.jpg" alt="" /></div><div class="content">
-						<a href="/home/media"><h2>Media</h2></a>
-						<a href="/home/media"><p>Anime, Drama, Movie and Music.</p></a>
-					</div>
-				</section>
-			</section>
-
-			<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-					<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; czy-kasakun.com All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
+			<footer class="mastfoot mt-auto">
+			<div class="inner">
+				<p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+			</div>
 			</footer>
-
 		</div>
 
-		<!-- Scripts -->
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/jquery.min.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/jquery.scrollex.min.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/jquery.scrolly.min.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/browser.min.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/breakpoints.min.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/util.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/main.js"></script>
-
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</body>
 </html>

@@ -20,6 +20,9 @@ The static directory in each app is just for local test.
 ## TO DO
 
 1. Tag System.
+2. The style. I admit the template is good. But I am really tired to with 
+the scalability. Yes, they are awful. And I decide to use bootswatch.
+Design the site myself.
 
 ## Bugs
 
