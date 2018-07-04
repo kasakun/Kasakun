@@ -580,12 +580,12 @@
   }
   
   .markdown-body table tr {
-    background-color: #fff;
+    background-color: #073642;
     border-top: 1px solid #c6cbd1;
   }
   
   .markdown-body table tr:nth-child(2n) {
-    background-color: #f6f8fa;
+    background-color: #073642;
   }
   
   .markdown-body img {
@@ -660,7 +660,8 @@
   }
 
   .markdown-body .codehilite pre {
-    background-color: #002b36;
+    color: #073642;
+    background-color: #eee8d5;
   }
   
   .markdown-body .full-commit .btn-outline:not(:disabled):hover {
