@@ -7,6 +7,13 @@ from website.ctrl.book import *
 import markdown2
 import math
 
+tagMap=["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]
+def simpleHash(oldTags):
+    newTags = {}
+    for oldTag in oldTags:
+        newTags[tagMap[hash(oldTag)%len(tagMap)]] = oldTag
+    return newTags
+
 # Website entry
 def entry(request):
     return render(request, 'entry.html')
@@ -83,9 +90,15 @@ def article(request):
     articleDict = item.to_dict()
     articleDict['content'] = markdown2.markdown(articleDict['content'],
                                                 extras=['fenced-code-blocks', 'tables', 'strike'])
+    tags = item.tag.split(',')
+    print(tags)
+    tagsAfterHash = simpleHash(tags)
+    print(tagsAfterHash)
+
     return render(request, 'article.html',
                   {'article': articleDict,
-                   'backPage': backPage})
+                   'backPage': backPage,
+                   'tags': tagsAfterHash})
 
 def editor(request):
     # try:
@@ -103,6 +116,7 @@ def publish(request):
         article = Article()
         article.title = request.POST['formTitle']
         article.category = request.POST['formCategory']
+        article.tag = request.POST['formTag']
         article.introduction = request.POST['formIntroduction']
         article.content = request.POST['formContent']
         article.save()

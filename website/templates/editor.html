@@ -38,6 +38,9 @@
 							<option value="review">Review</option>
 						</select>
 					</div>
+					<div class="form-group col-md-7">
+						<input type="text" class="form-control" name="tag" id="tag" value="" placeholder="Tag">
+					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -136,6 +139,13 @@
 							formCategory.setAttribute("type","hidden");
 							formCategory.value=document.getElementById("category").value;
 							postForm.appendChild(formCategory);
+
+							var formTag=document.createElement("textarea");
+							formTag.setAttribute("name","formTag");
+							formTag.setAttribute("id","formTag")
+							formTag.setAttribute("type","hidden");
+							formTag.value=document.getElementById("tag").value;
+							postForm.appendChild(formTag);
 
 							var formIntroduction=document.createElement("textarea");
 							formIntroduction.setAttribute("name","formIntroduction");

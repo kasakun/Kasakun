@@ -52,6 +52,7 @@
 					</div>
 				</div>
 			</div>
+			{% for badge, tag in tags.items %}<span class="badge badge-{{ badge }}">&nbsp;{{ tag }}&nbsp;</span>&nbsp;&nbsp;{% endfor %}
 			<hr />
 			<div class="markdown-body">
 				{{ article.content | safe }}
