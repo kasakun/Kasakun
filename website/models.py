@@ -3,6 +3,7 @@ from django.db import models
 class Article(models.Model):
     title = models.CharField(u'title', max_length=256)
     category = models.CharField(u'category', max_length=80)
+    tag = models.CharField(u'tag', max_length=80)
     content = models.TextField(u'content')
     number = models.IntegerField(u'number', default=0)
     introduction = models.TextField(u'introduction')

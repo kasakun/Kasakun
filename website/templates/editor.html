@@ -1,83 +1,76 @@
 <!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>Editor-kasakun</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/main.css" />
-        <link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/editormd/css/editormd.min.css" />
-		<noscript><link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/index/assets/css/noscript.css" /></noscript>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="http://static.czy-kasakun.com/kasakun/editormd/css/editormd.min.css">
+		<link href="https://bootswatch.com/_assets/css/custom.min.css" rel="stylesheet">
 	</head>
-	<body class="is-preload">
-		<!-- Page Wrapper -->
-		<div id="page-wrapper">
-			<!-- Header -->
-			<header id="header">
-				<h1><a href="/home">Zeyu Chen</a></h1>
-			</header>
-			<!-- Main -->
-			<article id="main">
-				<header>
-					<h2>Editor</h2>
-				</header>	
-                <section class="wrapper style5">
-					<form>
-							<div class="row gtr-uniform">
-								<div class="col-1"></div>
-								<div class="col-5 col-12-xsmall">
-									<input type="text" name="title" id="title" value="" placeholder="Title" />
-								</div>
-								<div class="col-5">
-									<select name="category" id="category">
-										<option value="">- Category -</option>
-										<option value="article">Article</option>
-										<option value="comment">Comment</option>
-										<option value="review">Review</option>
-									</select>
-								</div>
-								<div class="col-1"></div>
-								<div class="col-1"></div>
-								<div class="col-10 col-12-xsmall">
-									<input type="text" name="introduction" id="introduction" value="" placeholder="Introduction" />
-								</div>
-								<div class="col-1"></div>
-							</div>
-					</form>
-                    <div id="editor">
-						<textarea style="display:none;">### Hello Editor.md !</textarea>
-                    </div>
-                </section>
-            </article>
-            
-
-			<!-- Footer -->
+	<body>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="/home">Home</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</nav>
+		<div class="container">
+			<div class="page-header" id="banner">
+				<div class="row">
+					<div class="col-lg-8 col-md-7 col-sm-6">
+					<h1>Editor</h1>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<form>
+				<div class="form-row">
+					<div class="form-group col-md-3">
+						<input type="text" class="form-control" name="title" id="title" value="" placeholder="Title">
+					</div>
+					<div class="form-group col-md-2">
+						<select class="custom-select mr-sm-2" name="category" id="category">
+							<option selected>- Category -</option>
+							<option value="article">Article</option>
+							<option value="comment">Comment</option>
+							<option value="review">Review</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
+						<input type="text" class="form-control" name="introduction" id="introduction" value="" placeholder="Introduction" />
+					</div>
+				</div>
+			</form>
+			
+			<div id="editor">
+				<textarea style="display:none;"># Hello, Ready to Create?</textarea>
+			</div>
 			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-					<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
+				<div class="row">
+					<div class="col-lg-12">
+					<ul class="list-unstyled">
+						<li class="float-lg-right"><a href="#top">Back to top</a></li>
+						<li><a href="http://blog.bootswatch.com" onclick="pageTracker._link(this.href); return false;">Blog</a></li>
+						<li><a href="https://feeds.feedburner.com/bootswatch">RSS</a></li>
+						<li><a href="https://twitter.com/bootswatch">Twitter</a></li>
+						<li><a href="https://github.com/thomaspark/bootswatch/">GitHub</a></li>
+						<li><a href="../help/#api">API</a></li>
+						<li><a href="../help/#donate">Donate</a></li>
+					</ul>
+					<p>&copy; Zeyu Chen</a>.</p>
+					</div>
+				</div>
 			</footer>
 		</div>
-
+		
 		<!-- Scripts -->
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/jquery.min.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/jquery.scrollex.min.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/jquery.scrolly.min.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/browser.min.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/breakpoints.min.js"></script>
-		<script src="http://static.czy-kasakun.com/kasakun/index/assets/js/util.js"></script>
-        <script src="http://static.czy-kasakun.com/kasakun/index/assets/js/main.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script src="http://static.czy-kasakun.com/kasakun/editormd/editormd.min.js"></script>
 		<script src="http://static.czy-kasakun.com/kasakun/editormd/languages/en.js"></script>
 		<script type="text/javascript">
@@ -100,7 +93,7 @@
 
             $(function() {
                 editor = editormd("editor", {
-                    width   : "90%",
+                    width   : "100%",
                     height  : 640,
                     syncScrolling : "single",
                     path    : "http://static.czy-kasakun.com/kasakun/editormd/lib/",
@@ -108,6 +101,7 @@
                     previewTheme : "default",
                     editorTheme : "3024-day",
 					saveHTMLToTextarea: 'true',
+					watch: false,
 					toolbarIcons : function() {
             		return ["undo", "redo", "|", 
 							"bold", "hr", "|", 
