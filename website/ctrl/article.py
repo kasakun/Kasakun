@@ -1,4 +1,5 @@
 from website.models import Article
+from website.models import ArticleTag
 from website.models import Book
 
 def getArticles(page, num):
@@ -46,3 +47,13 @@ def getArticlesByCategory(category):
             item['categorys'] = item['category'].split(',')
             result.append(item)
     return result
+
+def getArticleTag(tagName):
+    if not ArticleTag.objects.filter(name=tagName):
+        return None
+    else:
+        tag = ArticleTag.objects.filter(name=tagName)[0]
+    return tag
+
+def getArticleTags():
+    return ArticleTag.objects.all()

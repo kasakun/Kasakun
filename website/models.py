@@ -15,6 +15,12 @@ class Article(models.Model):
     def to_dict(self):
         return dict([(attr, getattr(self, attr)) for attr in [f.name for f in self._meta.fields]])
 
+class ArticleTag(models.Model):
+    name = models.CharField(u'name', max_length=256)
+    articleId = models.TextField(u'articleId')
+    def __str__(self):
+        return self.name
+
 class Book(models.Model):
     title = models.CharField("title", max_length=256)
     category = models.CharField(u'category', max_length=80)

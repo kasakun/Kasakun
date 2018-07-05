@@ -40,6 +40,8 @@ def blog(request):
     articles = getArticles(page, num)
     categories = getArticleCategories()
     recentArticles = getRecentArticles(4)
+    tags = getArticleTags()
+    tagsAfterHash = simpleHash(tags)
 
     if len(articles) < num:
         nextPage = page
@@ -75,7 +77,8 @@ def blog(request):
                    'lastPage': lastPage,
                    'nextPage': nextPage,
                    'pages': pages,
-                   'pagination': pagination})
+                   'pagination': pagination,
+                    'tags': tagsAfterHash})
 
 def article(request):
     try:
@@ -101,14 +104,6 @@ def article(request):
                    'tags': tagsAfterHash})
 
 def editor(request):
-    # try:
-    #     article_id = request.GET['articleid']
-    # except:
-    #     return articles(request)
-    # logging_status = get_logging_status(request)
-    # item = get_article(article_id)
-    # article_dict = item.to_dict()
-    # article_dict['categorys'] = article_dict['category'].split(',')
     return render(request, 'editor.html')
 
 def publish(request):
@@ -120,7 +115,22 @@ def publish(request):
         article.introduction = request.POST['formIntroduction']
         article.content = request.POST['formContent']
         article.save()
-        print(request.POST['formTitle'])
+
+        # save tag
+        tags = article.tag.split(',')
+        
+        for tag in tags:
+            if not getArticleTag(tag):
+                print(not getArticleTag(tag))
+                newTag = ArticleTag()
+                newTag.name = tag
+                newTag.articleId = str(article.id)
+                newTag.save()
+            else:
+                oldTag = getArticleTag(tag)
+                oldTag.articleId = oldTag.articleId + "," + str(article.id)
+                oldTag.save()
+
         return HttpResponseRedirect("/home/blog")
     else:
         return render(request,'editor.html')

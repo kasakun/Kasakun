@@ -49,18 +49,23 @@
 				</div>
 			</div>
 			<hr />
-			{% for article in articles %}
+			
 			<div class="row">
 				<div class="col-lg-8 col-md-7 col-sm-6">
+					{% for article in articles %}
 					<a href="/home/blog/article?id={{ article.id }}" style="text-decoration:none;">
 					<h2>{{ article.title }}</h2>
 					</a>
 					<p class="lead">{{ article.introduction }}</p>
 					<p class="lead">{{ article.pubDate }} | {{ article.number }} views</p>
 					<hr />
-				</div>	
+					{% endfor %}
+				</div>
+				<div class="col-lg-4 col-md-5 col-sm-6">
+					<h2>Tag</h2>
+					{% for badge, tag in tags.items %}<span class="badge badge-{{ badge }}">&nbsp;{{ tag }}&nbsp;</span>&nbsp;&nbsp;{% endfor %}
+				</div>
 			</div>
-			{% endfor %}
 			<div>
 			<ul class="pagination">
 				<li class="page-item {% if page == 1 %}disabled{% endif %}">
