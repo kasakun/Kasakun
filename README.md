@@ -19,17 +19,18 @@ The static directory in each app is just for local test.
 
 ## TO DO
 
-1. ~~Tag System.~~ *Done*
+1. ~~Tag System.~~ **Done**
 2. ~~The style. I admit the template is good. But I am really tired to with 
 the scalability. Yes, they are awful. And I decide to use bootswatch.
-Design the site myself.~~ *Done*
-3. Other site info : if not complete, should show "not conplete".
+Design the site myself.~~ **Done**
+3. Other site info : if not complete, should show "not complete".
 4. About me
 5. Deploy with only blog version
 
 ## Bugs
 
-~~00000001 Markdown cannot use h1 header~~  *Fixed*
+~~00000001 Markdown cannot use h1 header~~  **Fixed**
+
 00000002 If items are not enough the pagination will go wrong.
 (i.e. 4 pages items, click page 5 will route to a wrong page.)
-**Actually I am not sure I should fix it since the pages will grow and cover it**
+*Actually I am not sure I should fix it since the pages will grow and cover it*
