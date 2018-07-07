@@ -44,7 +44,7 @@
 			<div class="page-header" id="banner">
 				<div class="row">
 					<div class="col-lg-8 col-md-7 col-sm-6">
-					<h1>Blog</h1>
+					<h1>Blog-{{ category }}</h1>
 					</div>
 				</div>
 			</div>
@@ -73,25 +73,25 @@
 			<div>
 			<ul class="pagination">
 				<li class="page-item {% if page == 1 %}disabled{% endif %}">
-				<a class="page-link" href="/home/blog?page={{ lastPage }}">&laquo;</a>
+				<a class="page-link" href="/home/blog?page={{ lastPage }}&&category={{ category }}">&laquo;</a>
 				</li>
 				<li class="page-item {% if page == pagination.1 %}active{% endif %}">
-				<a class="page-link" href="/home/blog?page={{ pagination.1 }}">{{ pagination.1 }}</a>
+				<a class="page-link" href="/home/blog?page={{ pagination.1 }}&&category={{ category }}">{{ pagination.1 }}</a>
 				</li>
 				<li class="page-item {% if page == pagination.2 %}active{% endif %}">
-				<a class="page-link" href="/home/blog?page={{ pagination.2 }}">{{ pagination.2 }}</a>
+				<a class="page-link" href="/home/blog?page={{ pagination.2 }}&&category={{ category }}">{{ pagination.2 }}</a>
 				</li>
 				<li class="page-item {% if page == pagination.3 %}active{% endif %}">
-				<a class="page-link" href="/home/blog?page={{ pagination.3 }}">{{ pagination.3 }}</a>
+				<a class="page-link" href="/home/blog?page={{ pagination.3 }}&&category={{ category }}">{{ pagination.3 }}</a>
 				</li>
 				<li class="page-item {% if page == pagination.4 %}active{% endif %}">
-				<a class="page-link" href="/home/blog?page={{ pagination.4 }}">{{ pagination.4 }}</a>
+				<a class="page-link" href="/home/blog?page={{ pagination.4 }}&&category={{ category }}">{{ pagination.4 }}</a>
 				</li>
 				<li class="page-item {% if page == pagination.5 %}active{% endif %}">
-				<a class="page-link" href="/home/blog?page={{ pagination.5 }}">{{ pagination.5 }}</a>
+				<a class="page-link" href="/home/blog?page={{ pagination.5 }}&&category={{ category }}">{{ pagination.5 }}</a>
 				</li>
 				<li class="page-item {% if page == pages %}disabled{% endif %}">
-				<a class="page-link" href="/home/blog?page={{ nextPage }}">&raquo;</a>
+				<a class="page-link" href="/home/blog?page={{ nextPage }}&&category={{ category }}">&raquo;</a>
 				</li>
 			</ul>
 			</div>

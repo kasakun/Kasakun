@@ -7,6 +7,8 @@ urlpatterns = [
     path('', views.entry),
     path('home/', views.home),
     path('home/blog', views.blog),
+    path('home/blog/category', views.blogByCategory),
+    path('home/blog/tag', views.blogByTag),
     path('home/book', views.book),
     path('home/demo', views.demo),
     path('home/game', views.game),

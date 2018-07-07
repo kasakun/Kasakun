@@ -26,7 +26,6 @@ def home(request):
 def blog(request):
     try:
         page = int(request.GET['page'])
-        # num = int(request.GET['num'])
     except:
         page = 1
     
@@ -38,7 +37,6 @@ def blog(request):
         lastPage = page - 1
     
     articles = getArticles(page, num)
-    categories = getArticleCategories()
     recentArticles = getRecentArticles(4)
     tags = getArticleTags()
     tagsAfterHash = simpleHash(tags)
@@ -71,8 +69,125 @@ def blog(request):
 
     return render(request, 'blog.html', 
                   {'articles': articles,
-                   'categories': categories,
                    'recentArticles': recentArticles,
+                   'page': page,
+                   'lastPage': lastPage,
+                   'nextPage': nextPage,
+                   'pages': pages,
+                   'pagination': pagination,
+                    'tags': tagsAfterHash})
+
+def blogByCategory(request):
+    try:
+        category = request.GET['category']
+    except:
+        return blog(request)
+    try:
+        page = int(request.GET['page'])
+    except:
+        page = 1
+    
+    num = 4
+
+    if page <= 1:
+        lastPage = 1
+    else:
+        lastPage = page - 1
+    
+    articles = getArticlesByCategory(page, num, category)
+    recentArticles = getRecentArticles(4)
+    tags = getArticleTags()
+    tagsAfterHash = simpleHash(tags)
+
+    if len(articles) < num:
+        nextPage = page
+    else:
+        nextPage = page + 1
+
+    # Calculate Pagination
+    pages = int(math.ceil(getArticleNum()/4))
+
+    if page > pages:
+        page = 1
+
+    if page < 5:
+        pagination = {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}
+    elif page > (pages - 5):
+        pagination = {'1': pages - 4, 
+                      '2': pages - 3, 
+                      '3': pages - 2, 
+                      '4': pages - 1, 
+                      '5': pages}
+    else:
+        pagination = {'1': pages - 2, 
+                      '2': pages - 1, 
+                      '3': page, 
+                      '4': pages + 1, 
+                      '5': pages + 2}
+
+    return render(request, 'blogByCategory.html', 
+                  {'articles': articles,
+                   'recentArticles': recentArticles,
+                   'category': category,
+                   'page': page,
+                   'lastPage': lastPage,
+                   'nextPage': nextPage,
+                   'pages': pages,
+                   'pagination': pagination,
+                    'tags': tagsAfterHash})
+
+def blogByTag(request):
+    try:
+        tag = request.GET['tag']
+    except:
+        return blog(request)
+    try:
+        page = int(request.GET['page'])
+    except:
+        page = 1
+
+    num = 4
+
+    if page <= 1:
+        lastPage = 1
+    else:
+        lastPage = page - 1
+    
+    articles = getArticlesByTag(page, num, tag)
+    recentArticles = getRecentArticles(4)
+    tags = getArticleTags()
+    tagsAfterHash = simpleHash(tags)
+
+    if len(articles) < num:
+        nextPage = page
+    else:
+        nextPage = page + 1
+
+    # Calculate Pagination
+    pages = int(math.ceil(getArticleNum()/4))
+
+    if page > pages:
+        page = 1
+
+    if page < 5:
+        pagination = {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}
+    elif page > (pages - 5):
+        pagination = {'1': pages - 4, 
+                      '2': pages - 3, 
+                      '3': pages - 2, 
+                      '4': pages - 1, 
+                      '5': pages}
+    else:
+        pagination = {'1': pages - 2, 
+                      '2': pages - 1, 
+                      '3': page, 
+                      '4': pages + 1, 
+                      '5': pages + 2}
+
+    return render(request, 'blogByTag.html', 
+                  {'articles': articles,
+                   'recentArticles': recentArticles,
+                   'tagName': tag,
                    'page': page,
                    'lastPage': lastPage,
                    'nextPage': nextPage,
