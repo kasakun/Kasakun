@@ -21,6 +21,9 @@ def entry(request):
 # Website home
 def home(request):
     return render(request, 'home.html')
+# About
+def about(request):
+    return render(request, 'about.html')
 
 # Blog
 def blog(request):
