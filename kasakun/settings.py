@@ -25,7 +25,7 @@ SECRET_KEY = 'rt3hdu!iajk_($i9cqnrh&+(+4_8#62e_zxi$23g7e16&-&^xy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'czy-kasakun.com']
 
 
 # Application definition
