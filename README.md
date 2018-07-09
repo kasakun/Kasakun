@@ -31,6 +31,17 @@ the cards view to show the pic and description.
 7. Besides Book, other part can use the same structure of the Book?
 Maybe Game need categories
 
+## Config
+
+### pip Packkage
+
+```
+sudo pip3 install Django
+sudo pip3 install markdown2
+```
+
+### MySQL setting
+
 ## Bugs
 
 ~~00000001 Markdown cannot use h1 header~~  **Fixed**
