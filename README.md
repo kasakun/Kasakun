@@ -24,8 +24,12 @@ The static directory in each app is just for local test.
 the scalability. Yes, they are awful. And I decide to use bootswatch.
 Design the site myself.~~ **Done**
 3. Other site info : if not complete, should show "not complete".
-4. About me
+4. ~~About me~~
 5. Deploy with only blog version
+6. Book: No plan recently to do the categories. The first thing is to make
+the cards view to show the pic and description.
+7. Besides Book, other part can use the same structure of the Book?
+Maybe Game need categories
 
 ## Bugs
 
