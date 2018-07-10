@@ -1,11 +1,13 @@
 from website.models import Article
 from website.models import ArticleTag
 from website.models import Book
+from django.utils import timezone
 
 def getArticles(page, num):
     items = Article.objects.order_by('-pubDate').all()[(page - 1) * num: page * num]
     result = []
     for item in items:
+        item.pubDate = timezone.localtime(item.pubDate)
         item=item.to_dict()
         item['categorys']=item['category'].split(',')
         result.append(item)

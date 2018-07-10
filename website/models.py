@@ -9,7 +9,6 @@ class Article(models.Model):
     number = models.IntegerField(u'number', default=0)
     introduction = models.TextField(u'introduction')
     pubDate = models.DateTimeField(u'pubDate', default=timezone.now)
-    print(pubDate)
 
     def __str__(self):
         return self.title
