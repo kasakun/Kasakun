@@ -1,6 +1,7 @@
 # kasakun
 
 Personal website of myself. We will have blogs, bookstore, demo, photo, etc.
+The site is available: http://czy-kasakun.com
 
 For the blog part, articles on this site is different with blog.czy-kasakun.com
 which are diary or words besides coding rather than pure technical review. Yes,
@@ -24,12 +25,15 @@ The static directory in each app is just for local test.
 the scalability. Yes, they are awful. And I decide to use bootswatch.
 Design the site myself.~~ **Done**
 3. Other site info : if not complete, should show "not complete".
-4. ~~About me~~
-5. Deploy with only blog version
+4. ~~About me~~ **Done**
+5. ~~Deploy with only blog version~~ **Done**
 6. Book: No plan recently to do the categories. The first thing is to make
 the cards view to show the pic and description.
 7. Besides Book, other part can use the same structure of the Book?
 Maybe Game need categories
+8. Tiny fix: clear the non-related link on the page.
+9. Add ssl
+10. Multi-Language support.
 
 ## Config
 
