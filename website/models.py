@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Article(models.Model):
     title = models.CharField(u'title', max_length=256)
@@ -7,7 +8,8 @@ class Article(models.Model):
     content = models.TextField(u'content')
     number = models.IntegerField(u'number', default=0)
     introduction = models.TextField(u'introduction')
-    pubDate = models.DateTimeField(u'pubDate', auto_now_add=True, editable=True)
+    pubDate = models.DateTimeField(u'pubDate', default=timezone.now)
+    print(pubDate)
 
     def __str__(self):
         return self.title
