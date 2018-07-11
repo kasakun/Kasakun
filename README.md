@@ -48,8 +48,12 @@ sudo pip3 install markdown2
 
 ## Bugs
 
-~~00000001 Markdown cannot use h1 header~~  **Fixed**
+00000001 ~~Markdown cannot use h1 header.~~  **Fixed**
 
 00000002 If items are not enough the pagination will go wrong.
 (i.e. 4 pages items, click page 5 will route to a wrong page.)
 *Actually I am not sure I should fix it since the pages will grow and cover it*
+
+00000002 ~~Time Zone error.~~  **Fixed**
+
+00000003 ~~Admin change charset utf8 error.~~  **Fixed**
