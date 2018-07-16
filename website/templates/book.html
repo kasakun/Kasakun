@@ -28,6 +28,29 @@
 				</div>
 			</div>
 			<hr />
+			{% for book in books %}
+			<div class="col-lg-4">
+				<div class="bs-component">
+					<div class="card mb-3">
+						<h3 class="card-header">{{ book.title }}</h3>
+						<img style="height: 200px; width: 100%; display: block;" src="http://static.czy-kasakun.com/kasakun/index/images/banner.jpg" alt="Card image">
+						<div class="card-body">
+							<p class="card-text">Introduction: {{ book.introduction }}</p>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">Category: {{ book.category }}</li>
+							<li class="list-group-item">Format: {{ book.fileFormat }}</li>
+						</ul>
+						<div class="card-body">
+							<a href="{{ book.downloadUrl }}" class="card-link">Download</a> | {{ book.number }}
+						</div>
+						<div class="card-footer text-muted">
+							{{ book.uploadDate }} PDT
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
 			<footer id="footer">
 				<div class="row">
 					<div class="col-lg-12">

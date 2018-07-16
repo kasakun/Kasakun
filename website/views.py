@@ -255,32 +255,10 @@ def publish(request):
 
 # Book
 def book(request):
-    try:
-        page = int(request.GET['page'])
-        num = int(request.GET['num'])
-    except:
-        page = 1
-        num = 4
-
-    if page <= 1:
-        lastPage = 1
-    else:
-        lastPage = page - 1
+    books = getBooks()
     
-    books = getArticles(page, num)
-    recentBooks = getRecentBooks(4)
-
-    if len(books) < num:
-        nextPage = page
-    else:
-        nextPage = page + 1
-    
-
     return render(request, 'book.html', 
-                  {'books': books,
-                   'recentBooks': recentBooks,
-                   'lastPage': lastPage,
-                   'nextPage': nextPage})
+                  {'books': books})
 
 def demo(request):
 

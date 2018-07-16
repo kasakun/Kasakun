@@ -10,10 +10,10 @@ class ArticleAdmin(admin.ModelAdmin):
 class ArticleTagAdmin(admin.ModelAdmin):
     list_display = ('name', 'articleId',)
 
-# class BookAdmin(admin.ModelAdmin):
-#     list_display = ('title', 'category', 'number', 'pubDate', 'introduction',)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'number', 'uploadDate', 'introduction',)
 
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(ArticleTag, ArticleTagAdmin)
-# admin.site.register(Book, BookAdmin)
+admin.site.register(Book, BookAdmin)

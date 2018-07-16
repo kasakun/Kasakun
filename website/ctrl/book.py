@@ -1,12 +1,11 @@
 from website.models import Book
 
 
-def getBooks(page, num):
-    items = Book.objects.order_by('-uploadDate').all()[(page - 1) * num:page * num]
+def getBooks():
+    items = Book.objects.order_by('-uploadDate').all()
     result = []
     for item in items:
         item = item.to_dict()
-        item['categorys'] = item['category'].split(',')
         result.append(item)
     return result
 

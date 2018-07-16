@@ -29,7 +29,7 @@ class Book(models.Model):
     imgUrl = models.CharField("imgUrl", max_length=256)
     number = models.IntegerField(u'number', default=0)
     introduction = models.TextField(u'introduction')
-    uploadDate = models.DateTimeField(u'uploadDate', auto_now_add=True, editable=True)
+    uploadDate = models.DateTimeField(u'uploadDate', default=timezone.now)
     downloadUrl = models.CharField("downloadUrl", max_length=256)
 
     def __str__(self):
