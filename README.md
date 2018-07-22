@@ -34,6 +34,7 @@ Maybe Game need categories
 8. Tiny fix: clear the non-related link on the page.
 9. Add ssl
 10. Multi-Language support.
+11. Instagram support: Sync with my instagram's posts.
 
 ## Config
 
