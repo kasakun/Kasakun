@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, ArticleTag, Book
+from .models import Article, ArticleTag, Book, MediaInstagram
 
 
 # Register your models here.
@@ -13,7 +13,9 @@ class ArticleTagAdmin(admin.ModelAdmin):
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'number', 'uploadDate', 'introduction',)
 
+class MediaInstagramAdmin(admin.ModelAdmin):
+    list_display = ('imgUrl', 'link', 'uploadDate',)
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(ArticleTag, ArticleTagAdmin)
-admin.site.register(Book, BookAdmin)
+admin.site.register(MediaInstagram, MediaInstagramAdmin)

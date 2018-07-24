@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from website.ctrl.article import *
 from website.ctrl.book import *
+from website.ctrl.instagram import *
 
 import markdown2
 import math
@@ -269,5 +270,6 @@ def game(request):
     return render(request,'game.html')
 
 def media(request):
-
-    return render(request,'media.html')
+    photos = getPhotos()
+    return render(request,'media.html',
+                  {'photos': photos})

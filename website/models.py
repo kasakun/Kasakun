@@ -37,3 +37,14 @@ class Book(models.Model):
 
     def to_dict(self):
         return dict([(attr, getattr(self, attr)) for attr in [f.name for f in self._meta.fields]])
+
+class MediaInstagram(models.Model):
+    imgUrl = models.CharField("imgUrl", max_length=256)
+    link = models.CharField("link", max_length=256)
+    uploadDate = models.DateTimeField(u'uploadDate')
+
+    def __str__(self):
+        return self.title
+
+    def to_dict(self):
+        return dict([(attr, getattr(self, attr)) for attr in [f.name for f in self._meta.fields]])

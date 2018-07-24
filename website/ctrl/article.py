@@ -7,7 +7,6 @@ def getArticles(page, num):
     items = Article.objects.order_by('-pubDate').all()[(page - 1) * num: page * num]
     result = []
     for item in items:
-        print(item.pubDate)
         item=item.to_dict()
         item['categorys']=item['category'].split(',')
         result.append(item)
