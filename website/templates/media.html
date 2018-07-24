@@ -28,18 +28,20 @@
 				</div>
 			</div>
 			<hr />
-			{% for photo in photos %}
-			<div class="col-lg-4">
-				<div class="bs-component">
-					<div class="card mb-3">
-						<img style="width: 100%; display: block;" src="{{photo.imgUrl}}" alt="Card image">
-						<div class="card-body">
-							<a href="{{ photo.link }}" class="card-link">Link</a> | {{ photo.uploadDate.date }}
+			<div class="row">
+				{% for photo in photos %}
+				<div class="col-md-4">
+					<div class="bs-component">
+						<div class="card mb-3">
+							<img style="width: 100%; display: block;" src="{{photo.imgUrl}}" alt="Card image">
+							<div class="card-body">
+								<a href="{{ photo.link }}" class="card-link">Link</a> | {{ photo.uploadDate.date }}
+							</div>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 			</div>
-			{% endfor %}
 			<footer id="footer">
 				<div class="row">
 					<div class="col-lg-12">
