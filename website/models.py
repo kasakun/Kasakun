@@ -44,7 +44,7 @@ class MediaInstagram(models.Model):
     uploadDate = models.DateTimeField(u'uploadDate')
 
     def __str__(self):
-        return self.title
+        return self.id
 
     def to_dict(self):
         return dict([(attr, getattr(self, attr)) for attr in [f.name for f in self._meta.fields]])
