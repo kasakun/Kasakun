@@ -43,8 +43,5 @@ class MediaInstagram(models.Model):
     link = models.CharField("link", max_length=256)
     uploadDate = models.DateTimeField(u'uploadDate')
 
-    def __str__(self):
-        return self.id
-
     def to_dict(self):
         return dict([(attr, getattr(self, attr)) for attr in [f.name for f in self._meta.fields]])
