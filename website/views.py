@@ -162,6 +162,9 @@ def blogByTag(request):
     else:
         lastPage = page - 1
     
+    if page == -1:
+        page = int(math.ceil(getArticleNum()/4))
+
     articles = getArticlesByTag(page, num, tag)
     recentArticles = getRecentArticles(4)
     tags = getArticleTags()
@@ -187,11 +190,11 @@ def blogByTag(request):
                       '4': pages - 1, 
                       '5': pages}
     else:
-        pagination = {'1': pages - 2, 
-                      '2': pages - 1, 
+        pagination = {'1': page - 2, 
+                      '2': page - 1, 
                       '3': page, 
-                      '4': pages + 1, 
-                      '5': pages + 2}
+                      '4': page + 1, 
+                      '5': page + 2}
 
     return render(request, 'blogByTag.html', 
                   {'articles': articles,
