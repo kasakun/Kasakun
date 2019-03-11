@@ -40,6 +40,9 @@ def blog(request):
     else:
         lastPage = page - 1
     
+    if page == -1:
+        page = int(math.ceil(getArticleNum()/4))
+
     articles = getArticles(page, num)
     recentArticles = getRecentArticles(4)
     tags = getArticleTags()
@@ -53,23 +56,25 @@ def blog(request):
     # Calculate Pagination
     pages = int(math.ceil(getArticleNum()/4))
 
+    print (pages)
+
     if page > pages:
         page = 1
 
     if page < 5:
         pagination = {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}
-    elif page > (pages - 5):
+    elif page > (pages - 2):
         pagination = {'1': pages - 4, 
                       '2': pages - 3, 
                       '3': pages - 2, 
                       '4': pages - 1, 
                       '5': pages}
     else:
-        pagination = {'1': pages - 2, 
-                      '2': pages - 1, 
+        pagination = {'1': page - 2, 
+                      '2': page - 1, 
                       '3': page, 
-                      '4': pages + 1, 
-                      '5': pages + 2}
+                      '4': page + 1, 
+                      '5': page + 2}
 
     return render(request, 'blog.html', 
                   {'articles': articles,

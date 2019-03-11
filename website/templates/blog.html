@@ -9,6 +9,7 @@
 		<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/solar/bootstrap.min.css" 
     	rel="stylesheet" integrity="sha384-5R1YdaymXlWnSzNCZhBMJnL6ZRBonq3cnj8A38eihLMaAb66oNJhErrQy9jIGHkl" crossorigin="anonymous">
 		<link href="https://bootswatch.com/_assets/css/custom.min.css" rel="stylesheet">
+		<style>a:hover {TEXT-DECORATION:none}</style> 
 	</head>
 	<body>
 		<div class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
@@ -74,8 +75,11 @@
 			</div>
 			<div>
 			<ul class="pagination">
+				<li class="page-item">
+				<a class="page-link" href="/home/blog?page=1">&laquo;</a>
+				</li>
 				<li class="page-item {% if page == 1 %}disabled{% endif %}">
-				<a class="page-link" href="/home/blog?page={{ lastPage }}">&laquo;</a>
+				<a class="page-link" href="/home/blog?page={{ lastPage }}">&lt;</a>
 				</li>
 				<li class="page-item {% if page == pagination.1 %}active{% endif %}">
 				<a class="page-link" href="/home/blog?page={{ pagination.1 }}">{{ pagination.1 }}</a>
@@ -93,7 +97,10 @@
 				<a class="page-link" href="/home/blog?page={{ pagination.5 }}">{{ pagination.5 }}</a>
 				</li>
 				<li class="page-item {% if page == pages %}disabled{% endif %}">
-				<a class="page-link" href="/home/blog?page={{ nextPage }}">&raquo;</a>
+				<a class="page-link" href="/home/blog?page={{ nextPage }}">&gt;</a>
+				</li>
+				<li class="page-item">
+				<a class="page-link" href="/home/blog?page=-1">&raquo;</a>
 				</li>
 			</ul>
 			</div>
